@@ -1,13 +1,13 @@
 {
-  "name": "geese manifest title!",
-  "description": "template made by @minihacks/geese",
-  "version": "1.2.0",
+  "name": "Purrmodoro Timer",
+  "description": "A purrfect pomodoro timer for all your study needs!",
+  "version": "1.1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
   "omnibox": {
-    "keyword": "gg"
+    "keyword": "pd"
   },
   "content_scripts": [
     {
@@ -15,10 +15,13 @@
         "https://*/*"
       ],
       "css": [
+        "block.css",
         "injection/injection.css"
       ],
       "js": [
-        "injection/injection.js"
+        "block.js",
+        "injection/injection.js",
+        "page.js"
       ]
     }
   ],
@@ -38,12 +41,6 @@
     "128": "icons/icon-128.png",
     "512": "icons/icon-512.png"
   },
-  "permissions": [
-    "tabs",
-    "scripting"
-  ],
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
-  ]
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": ["https://*/*", "http://*/*"]
 }
