@@ -15,10 +15,10 @@
         "https://*/*"
       ],
       "css": [
-        "injection/injection.css"
+        "block.css"
       ],
       "js": [
-        "injection/injection.js"
+        "block.js"
       ]
     }
   ],

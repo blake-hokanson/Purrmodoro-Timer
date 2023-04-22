@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'open_sans';
+    src: url(Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+}
+
+
+#message {
+    font-family: open_sans;
+    font-size: 15px;
+    text-align: center;
+}
