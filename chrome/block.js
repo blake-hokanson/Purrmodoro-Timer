@@ -1,5 +1,5 @@
 // Create array of prohibited sites (later replace with user defined sites?? Add functionality to check if on break?)
-let sites = [".netflix.com", ".youtube.com", ".twitter.com", ".instagram.com"];
+let sites = [".netflix.com", ".youtube.com", ".twitter.com", ".instagram.com",".twitch.tv",".pinterest.com",".reddit.com"];
 console.log("Loaded");
 
 // HTML that will overwrite the prohibited sites' HTML
@@ -45,16 +45,19 @@ html, body {
 </body>
 </html>`;
 
-const checkIfRunning = async () => {
+
+// Checks if the timer is running. If so, calls blockProhibited.
+const blockProhibitedIfTimer = async () => {
   chrome.runtime.sendMessage({ msg: "isRunning" }, (response) => {
     console.log("Func" + response);
     if (response) {
-      testSites();
+      blockProhibited();
     }
   });
 };
 
-const testSites = () => {
+// If the site is prohibited, block it. Else, print message.
+const blockProhibited = () => {
   // Loop through prohibited sites, check if current site matches any of them
   let prohib = false; // Track whether current site is prohibited
   for (let site in sites) {
@@ -75,4 +78,4 @@ const testSites = () => {
   }
 };
 
-checkIfRunning();
+blockProhibitedIfTimer();
