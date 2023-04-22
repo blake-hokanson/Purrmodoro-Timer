@@ -13,7 +13,7 @@
     {
       "matches": ["https://*/*"],
       "css": ["block.css", "injection/injection.css"],
-      "js": ["block.js", "injection/injection.js", "page.js"]
+      "js": ["block.js", "injection/injection.js"]
     }
   ],
   "action": {
