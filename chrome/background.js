@@ -1,3 +1,1 @@
-chrome.action.onClicked.addListener((tab) => {
-  chrome.tabs.create({ url: "https://schedulebuilder.umn.edu/" });
-});
+chrome.runtime.onMessage.addListener(() => console.log("Done"));
