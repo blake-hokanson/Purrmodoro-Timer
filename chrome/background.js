@@ -2,10 +2,13 @@ let isRunning = false; //function that loops
 let countDownTime; //date and time that timer ends
 let timerMin = 15; //min when started on timer
 let timerSec = 0; //sec when started on timer
+let isOver = false;
+let isWork = true;
 
 const setTimer = (msg) => {
   //sets a time for the timer
   if (msg !== null && msg.msg === "set") {
+    isOver = false;
     timerMin = msg.min;
     timerSec = msg.sec;
     if (isRunning) {
@@ -74,6 +77,30 @@ addTimer = (msg, sender, sendResponse) => {
   }
 };
 chrome.runtime.onMessage.addListener(addTimer);
+
+const timerOver = (msg) => {
+  if (msg !== null && msg.msg === "over") {
+    if (!isOver) {
+      isOver = true;
+      isWork = !isWork;
+      if (isWork) {
+        chrome.tabs.query(
+          { url: "chrome-extension://*/video.html" },
+          function (tabs) {
+            chrome.tabs.remove(tabs[0].id);
+          }
+        );
+        chrome.tabs.create({ url: "popup.html" });
+        setTimer({ msg: "set", min: 15, sec: 0 });
+      } else {
+        setTimer({ msg: "set", min: 5, sec: 0 });
+        chrome.tabs.create({ url: "video.html" });
+      }
+      startTimer({ msg: "start" });
+    }
+  }
+};
+chrome.runtime.onMessage.addListener(timerOver);
 
 getMinSec = (time) => {
   //converts time into mins and secs

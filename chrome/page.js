@@ -65,6 +65,9 @@ timerFunc = () => {
     clearInterval();
     setTimerHTML(0, 0);
     stopTimer();
+    chrome.runtime.sendMessage({
+      msg: "over",
+    });
   }
 };
 
