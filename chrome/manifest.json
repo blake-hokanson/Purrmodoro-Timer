@@ -7,7 +7,7 @@
     "service_worker": "background.js"
   },
   "omnibox": {
-    "keyword": "gg"
+    "keyword": "pd"
   },
   "content_scripts": [
     {
