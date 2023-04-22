@@ -11,18 +11,9 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://*/*"
-      ],
-      "css": [
-        "block.css",
-        "injection/injection.css"
-      ],
-      "js": [
-        "block.js",
-        "injection/injection.js",
-        "page.js"
-      ]
+      "matches": ["https://*/*"],
+      "css": ["block.css", "injection/injection.css"],
+      "js": ["block.js", "injection/injection.js"]
     }
   ],
   "action": {
