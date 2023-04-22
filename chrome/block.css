@@ -1,11 +1,12 @@
 @font-face {
-    font-family: 'open_sans';
-    src: url(Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+    font-family: 'open-sans';
+    src: "Open_Sans/static/OpenSans/OpenSans-Regular.ttf";
 }
 
 
 #message {
-    font-family: open_sans;
+    background-color: aqua;
+    font-family: open-sans, sans-serif, Arial;
     font-size: 15px;
     text-align: center;
 }
