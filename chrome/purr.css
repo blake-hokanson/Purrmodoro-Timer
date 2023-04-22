@@ -43,10 +43,8 @@
 }
 
 .logo {
-    /* margin-top: 10%; */
     margin: auto;
     max-width: 50%;
-    /* margin: 5rem auto; */
     display: grid;
     justify-content: center;
     gap: 2rem;
@@ -60,7 +58,6 @@
   }
 
 .homeBox h1 {
-    /* margin-top: 10%; */
     font-size: 2em;
     margin: auto;
 }
@@ -86,6 +83,7 @@
 }
 
 .optionBox {
+    cursor: pointer;
     width: 20%; 
     height: 3em;
     font-size: 1.6vw;
@@ -114,6 +112,7 @@
 }
 
 .menuButton {
+    cursor: pointer;
     width: 100px;
     height: 30px;
     margin: 20px;
