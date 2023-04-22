@@ -77,4 +77,11 @@ setTimerHTML = (min, sec) => {
   document.getElementById("timer").innerHTML = pad(min) + ":" + pad(sec);
 };
 
+document.addEventListener('DOMContentLoaded',function() {
+  var button = document.getElementById("start-button");
+  button.addEventListener('click',function() {
+    startTimer();
+  })
+});
+
 console.log("Run popup.js");
