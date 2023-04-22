@@ -66,6 +66,8 @@
 .optionBox {
     width: 150px;
     height: 30px;
+    margin-left: 33%; 
+    margin-top: 5%;
     text-align: center;
     fill: rgba(89, 60, 99, 0.41);
     background-color: rgba(89, 60, 99, 0.41);
