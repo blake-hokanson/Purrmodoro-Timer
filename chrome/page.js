@@ -7,6 +7,18 @@ window.addEventListener("click", function (e) {
   }
 });
 
+//run on load
+chrome.runtime.sendMessage({ msg: "timerLoaded" }, (response) => {
+  if (response) {
+    document.getElementById("timer").innerHTML =
+      response.min + ":" + response.sec;
+    if (response.isRunning) {
+      countDownTime = response.countDownTime;
+      timerVar = setInterval(timerFunc, 1000);
+    }
+  }
+});
+
 const setTimer = (min, sec = 0) => {
   chrome.runtime.sendMessage({ msg: "set", min: min, sec: sec });
 };
@@ -24,7 +36,6 @@ chrome.runtime.onMessage.addListener((msg) => {
     countDownTime =
       new Date().getTime() + 1000 * 60 * msg.min + 1000 * msg.sec + 1000; //add 1000ms for smooth transition
     timerVar = setInterval(timerFunc, 1000);
-    console.log(timerVar);
   }
 });
 
