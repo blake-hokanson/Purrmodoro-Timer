@@ -1,5 +1,5 @@
 // Create array of prohibited sites (later replace with user defined sites?? Add functionality to check if on break?)
-let sites = [".netflix.com", ".youtube.com",".twitter.com",".instagram.com"];
+let sites = [".netflix.com", ".youtube.com", ".twitter.com", ".instagram.com"];
 console.log("Loaded");
 
 // HTML that will overwrite the prohibited sites' HTML
@@ -45,22 +45,34 @@ html, body {
 </body>
 </html>`;
 
-// Loop through prohibited sites, check if current site matches any of them
-let prohib = false; // Track whether current site is prohibited
-for (let site in sites) {
-  let regex = new RegExp(sites[site]); // Regex to check if url is a sub-site of one of the prohibited site
-  console.log(regex);
-  // Check if prohibited site regex matches current url
-  if (regex.test(window.location.href)) {
-    console.log("On prohibited website");
-    prohib = true;
-    // Update page with overwrite text from above
-    document.open();
-    document.write(overwriteText);
-    document.close();
-  }
-}
+const checkIfRunning = async () => {
+  chrome.runtime.sendMessage({ msg: "isRunning" }, (response) => {
+    console.log("Func" + response);
+    if (response) {
+      testSites();
+    }
+  });
+};
 
-if (!prohib) {
-  console.log("This site is fine :)")
-}
+const testSites = () => {
+  // Loop through prohibited sites, check if current site matches any of them
+  let prohib = false; // Track whether current site is prohibited
+  for (let site in sites) {
+    let regex = new RegExp(sites[site]); // Regex to check if url is a sub-site of one of the prohibited site
+    // Check if prohibited site regex matches current url
+    if (regex.test(window.location.href)) {
+      console.log("On prohibited website");
+      prohib = true;
+      // Update page with overwrite text from above
+      document.open();
+      document.write(overwriteText);
+      document.close();
+    }
+  }
+
+  if (!prohib) {
+    console.log("This site is fine :)");
+  }
+};
+
+checkIfRunning();
