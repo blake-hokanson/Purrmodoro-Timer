@@ -11,15 +11,9 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://*/*"
-      ],
-      "css": [
-        "injection/injection.css"
-      ],
-      "js": [
-        "injection/injection.js"
-      ]
+      "matches": ["https://*/*"],
+      "css": ["injection/injection.css"],
+      "js": ["injection/injection.js", "page.js"]
     }
   ],
   "action": {
@@ -38,12 +32,6 @@
     "128": "icons/icon-128.png",
     "512": "icons/icon-512.png"
   },
-  "permissions": [
-    "tabs",
-    "scripting"
-  ],
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
-  ]
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": ["https://*/*", "http://*/*"]
 }
