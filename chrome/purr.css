@@ -1,3 +1,21 @@
+.controlPage {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    background-color:  rgba(217, 217, 217, 0.26);
+}
+
+.controlMenu {
+    flex: 1;
+    text-align: center;
+    overflow-y: auto;
+    align-content: center;
+    height: 100%;
+    fill: rgba(112, 78, 123, 0.52);
+    background-color: #D9D9D9;
+}
+
 .homePage {
     display: flex;
     justify-content: center;
@@ -35,6 +53,7 @@
     width: 150px;
     height: 30px;
     text-align: center;
+    margin-left: 17%;
     fill: rgba(89, 60, 99, 0.41);
     background-color: rgba(89, 60, 99, 0.41);
     border-radius: 20px;
