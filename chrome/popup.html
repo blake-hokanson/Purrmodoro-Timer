@@ -15,7 +15,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-image: radial-gradient(#c49ad2,#d9d9d9);
+        background-image: radial-gradient(#c49ad2, #d9d9d9);
       }
       .small-buttons {
         width: 100%;
@@ -24,38 +24,43 @@
         align-items: right;
         justify-content: right;
       }
-      #gear-image{
-        margin-top:10px;
-        margin-right:5px;
+      #gear-image {
+        margin-top: 10px;
+        margin-right: 5px;
         margin-bottom: 10px;
-        width:20px;
+        width: 20px;
       }
       #site-link {
-        margin-top:10px;
-        margin-right:15px;
+        margin-top: 10px;
+        margin-right: 15px;
         margin-bottom: 10px;
-        width:20px;
+        width: 20px;
       }
       #timer {
-        font-size:40px;
+        font-size: 40px;
         line-height: 75px;
-        margin-top:0px;
+        margin-top: 0px;
         margin-bottom: 30px;
       }
       #start-button {
         background-color: #816a89;
         color: #d9d9d9;
-        border:0px;
+        border: 0px;
         border-radius: 5px;
       }
     </style>
     <script src="page.js"></script>
     <script src="popup.js"></script>
+    <script src="popupOnly.js"></script>
   </head>
   <body>
     <div class="small-buttons">
-      <a href="controlPage.html" target="_blank"><image src="icons/gear.png" id="gear-image"/></a>
-      <a href="purrSite.html" target="_blank"><img src="icons/cat2.png"  id="site-link"/></a>
+      <a href="controlPage.html" target="_blank"
+        ><image src="icons/gear.png" id="gear-image"
+      /></a>
+      <a href="purrSite.html" target="_blank"
+        ><img src="icons/cat2.png" id="site-link"
+      /></a>
     </div>
     <p id="timer">15:00</p>
     <button id="start-button">Start Timer</button>

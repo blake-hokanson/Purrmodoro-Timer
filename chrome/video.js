@@ -6,4 +6,6 @@ videos = [
 document.getElementById("video").src =
   videos[Math.floor(Math.random() * videos.length)];
 
-document.addEventListener("DOMContentLoaded", () => startTimer());
+document.addEventListener("DOMContentLoaded", () =>
+  chrome.runtime.sendMessage({ msg: "start", set: false })
+);
