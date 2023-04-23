@@ -1,5 +1,5 @@
-let defaultStudy = 0.2;
-let defaultRest = 0.2;
+let defaultStudy = 25;
+let defaultRest = 5;
 let countDownTime; //date and time that timer ends
 let timerMin = defaultStudy; //min when started on timer
 let timerSec = 0; //sec when started on timer

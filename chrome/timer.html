@@ -24,7 +24,6 @@
         color: #d9d9d9;
         background-color: #816a89;
         width: 500px;
-        margin: 15px;
         text-align: center;
         line-height: 75px;
         font-size: 20px;
@@ -32,11 +31,12 @@
         border: 0px #816a89 solid;
         border-radius: 10px;
       }
-      #start-button {
+      .button {
         background-color: #816a89;
         color: #d9d9d9;
         border: 0px;
         border-radius: 5px;
+        margin-top: 30px;
       }
     </style>
     <script src="page.js"></script>
@@ -45,7 +45,8 @@
   <body>
     <div class="container">
       <div class="message" id="timer">00:00</div>
-      <button id="start-button">Start Timer</button>
+      <button class="button" id="start-button">Start Timer</button>
+      <button class="button" id="stop-button">Stop Timer</button>
     </div>
   </body>
 </html>
