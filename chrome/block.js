@@ -1,5 +1,4 @@
 // Create array of prohibited sites (later replace with user defined sites?? Add functionality to check if on break?)
-let sites = [".netflix.com", ".youtube.com", ".twitter.com", ".instagram.com",".twitch.tv",".pinterest.com",".reddit.com"];
 console.log("Loaded");
 
 // HTML that will overwrite the prohibited sites' HTML
@@ -30,7 +29,7 @@ html, body {
     text-align: center;
     line-height: 75px;
     font-size: 20px;
-    font-family: open-sans, sans-serif, Arial;
+    font-family: 'IBM Plex Sans Devanagari', sans-serif, Arial;
     border: 0px #816a89 solid;
     border-radius: 10px;
   }
@@ -45,23 +44,30 @@ html, body {
 </body>
 </html>`;
 
-
 // Checks if the timer is running. If so, calls blockProhibited.
-const blockProhibitedIfTimer = async () => {
+const blockProhibitedIfTimer = () => {
   chrome.runtime.sendMessage({ msg: "isRunning" }, (response) => {
-    console.log("Func" + response);
     if (response) {
-      blockProhibited();
+      console.log(response);
+      getBlockedSites();
+    }
+  });
+};
+
+const getBlockedSites = () => {
+  chrome.runtime.sendMessage({ msg: "getBlockedSites" }, (response) => {
+    if (response) {
+      blockProhibited(response);
     }
   });
 };
 
 // If the site is prohibited, block it. Else, print message.
-const blockProhibited = () => {
+const blockProhibited = (blockedSites) => {
   // Loop through prohibited sites, check if current site matches any of them
   let prohib = false; // Track whether current site is prohibited
-  for (let site in sites) {
-    let regex = new RegExp(sites[site]); // Regex to check if url is a sub-site of one of the prohibited site
+  for (let site in blockedSites) {
+    let regex = new RegExp(blockedSites[site]); // Regex to check if url is a sub-site of one of the prohibited site
     // Check if prohibited site regex matches current url
     if (regex.test(window.location.href)) {
       console.log("On prohibited website");
