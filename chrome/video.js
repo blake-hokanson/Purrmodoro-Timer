@@ -5,3 +5,5 @@ videos = [
 
 document.getElementById("video").src =
   videos[Math.floor(Math.random() * videos.length)];
+
+document.addEventListener("DOMContentLoaded", () => startTimer());
