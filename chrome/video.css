@@ -5,7 +5,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: radial-gradient(#d9d9d9, #816a89);
+  background: radial-gradient(#7cb8f0, #816a89);
 }
 
 #timer {
