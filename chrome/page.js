@@ -78,3 +78,24 @@ setTimerHTML = (min, sec) => {
 };
 
 console.log("Run popup.js");
+
+document.addEventListener('DOMContentLoaded', function() {
+  var link = document.getElementById('controlDiv');
+  link.addEventListener('click', function() {
+    location.href = "controlPage.html";
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var link = document.getElementById('aboutDiv');
+  link.addEventListener('click', function() {
+    location.href = "aboutMe.html";
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var link = document.getElementById('homeDiv');
+  link.addEventListener('click', function() {
+    location.href = "purrSite.html";
+  });
+});
