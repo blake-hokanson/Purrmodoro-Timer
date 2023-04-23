@@ -29,7 +29,7 @@ let timeData = {
   document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('aboutDiv');
     link.addEventListener('click', function() {
-      location.href = "aboutMe.html";
+      location.href = "aboutUs.html";
     });
   });
   
@@ -44,7 +44,9 @@ let timeData = {
 
   document.addEventListener('DOMContentLoaded', function() {
     const area = document.getElementsById('text');
+    
     area.value = getArray;
+
     const subText = document.getElementById('sub');
     subText.addEventListener('click', function() {
       
