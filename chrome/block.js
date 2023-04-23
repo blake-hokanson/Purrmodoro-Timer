@@ -30,7 +30,7 @@ html, body {
     text-align: center;
     line-height: 75px;
     font-size: 20px;
-    font-family: open-sans, sans-serif, Arial;
+    font-family: 'IBM Plex Sans Devanagari', sans-serif, Arial;
     border: 0px #816a89 solid;
     border-radius: 10px;
   }
