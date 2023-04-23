@@ -1,11 +1,14 @@
-let defaultStudy = 15;
-let defaultRest = 5;
-let isRunning = false; //function that loops
+let defaultStudy = 0.2;
+let defaultRest = 0.2;
 let countDownTime; //date and time that timer ends
 let timerMin = defaultStudy; //min when started on timer
 let timerSec = 0; //sec when started on timer
+
+let isRunning = false; //if timer is running
+let isStudy = false; //can access apps
+
 let isOver = false; //used to prevent timerOver from running multiple times
-let isWork = true; //can access apps
+
 let blockedSites = [
   ".netflix.com",
   ".youtube.com",
@@ -19,24 +22,33 @@ let blockedSites = [
 const setTimer = (msg) => {
   //sets a time for the timer
   if (msg !== null && msg.msg === "set") {
-    isOver = false;
     timerMin = msg.min;
     timerSec = msg.sec;
     if (isRunning) {
+      con;
       sendMsg("stopMsg");
       startTimer({ msg: "start" });
     } else {
       sendMsg("setMsg");
     }
+    sleep(1000).then(() => {
+      isOver = false;
+    });
   }
 };
 chrome.runtime.onMessage.addListener(setTimer);
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 const startTimer = (msg) => {
   //starts all timers
   if (msg !== null && msg.msg === "start") {
-    if (msg.responce !== false) {
-      isRunning = true;
+    isRunning = true;
+    if (msg.set !== false) {
+      console.log("isStudy set to True");
+      isStudy = true;
     }
     countDownTime =
       new Date().getTime() + 1000 * 60 * timerMin + 1000 * timerSec + 1000; //add 1000ms for smooth transition
@@ -95,15 +107,23 @@ const timerOver = (msg) => {
   if (msg !== null && msg.msg === "over") {
     if (!isOver) {
       isOver = true;
-      isWork = !isWork;
-      if (isWork) {
+      isStudy = !isStudy;
+      console.log("isStudy flipped");
+      if (isStudy) {
         chrome.tabs.query(
           { url: "chrome-extension://*/video.html" },
           function (tabs) {
             chrome.tabs.remove(tabs[0].id);
           }
         );
-        //chrome.tabs.create({ url: "popup.html" });
+        chrome.tabs.query(
+          { url: "chrome-extension://*/timer.html" },
+          function (tabs) {
+            if (tabs.length === 0) {
+              chrome.tabs.create({ url: "timer.html" });
+            }
+          }
+        );
         setTimer({ msg: "set", min: defaultStudy, sec: 0 });
       } else {
         setTimer({ msg: "set", min: defaultRest, sec: 0 });
@@ -124,7 +144,7 @@ getMinSec = (time) => {
 isRunningSend = (msg, sender, sendResponse) => {
   //returns if the timers are running or notlog
   if (msg !== null && msg.msg === "isRunning") {
-    sendResponse(isRunning);
+    sendResponse(isStudy);
   }
 };
 chrome.runtime.onMessage.addListener(isRunningSend);
@@ -157,3 +177,23 @@ chrome.runtime.sendMessage({ msg: "isRunning" }, (response) => {
   }
 );
 */
+/*
+chrome.tabs.onRemoved.addListener(() => {
+  chrome.tabs.create({ url: "video.html" });
+});
+*/
+
+chrome.runtime.onConnect.addListener(function (port) {
+  if (port.name === "popup") {
+    port.onDisconnect.addListener(function () {
+      chrome.tabs.query(
+        { url: "chrome-extension://*/timer.html" },
+        function (tabs) {
+          if (tabs.length === 0 && countDownTime - new Date().getTime() >= 0) {
+            chrome.tabs.create({ url: "timer.html" });
+          }
+        }
+      );
+    });
+  }
+});

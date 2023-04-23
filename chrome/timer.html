@@ -1,0 +1,52 @@
+`<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(#c49ad2, #d9d9d9);
+      }
+
+      .container {
+        display: flex;
+        height: 200px;
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .message {
+        color: #d9d9d9;
+        background-color: #816a89;
+        width: 500px;
+        margin: 15px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 20px;
+        font-family: open-sans, sans-serif, Arial;
+        border: 0px #816a89 solid;
+        border-radius: 10px;
+      }
+      #start-button {
+        background-color: #816a89;
+        color: #d9d9d9;
+        border: 0px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="page.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="message" id="timer">00:00</div>
+      <button id="start-button">Start Timer</button>
+    </div>
+  </body>
+</html>
+`
