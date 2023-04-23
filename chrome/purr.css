@@ -3,24 +3,34 @@
     justify-content: center;
     overflow: hidden;
     align-items: center;
-    background-color:  rgba(217, 217, 217);
+    background: linear-gradient(#C686DB, #d9d9d9);
 }
+
 html * {
     font-family:  Helvetica, sans-serif;
     color: rgb(27, 27, 27);
 }
+
 .controlMenu {
+    border: solid 3px grey;
+    border-radius: 10px;
     text-align: center;
     overflow-y: auto;
     align-items: center;
+    min-height: 500px;
     width: 140px;
     height: 100%;
-    fill: rgba(112, 78, 123);
-    background-color: #D9D9D9;
+    background-color: #d9d9d9b6;
 }
 
 .custom-field {
     margin-left: 15%;
+    margin-right: 5px;
+}
+
+.custom-field #text {
+    border-radius: 10;
+    margin-top: 10px;
 }
 
 .homePage {
@@ -30,6 +40,7 @@ html * {
     align-items: center;
     background: linear-gradient(#C686DB, #d9d9d9);
 }
+
 .aboutUs {
     display: flex;
     justify-content: center;
@@ -37,6 +48,7 @@ html * {
     align-items: center;
     background: linear-gradient(#C686DB, #d9d9d9);
 }
+
 .homeBox {
     flex: 1;
     width: 50%;
@@ -46,11 +58,10 @@ html * {
     margin-right: 15%;
     text-align: center;
     align-content: center;
-    min-height: 400px;
+    min-height: 440px;
     height: 80%;
     opacity: 0.85;
-    fill: rgb(112,78,123);
-    background-color: rgba(112, 78, 123);
+    background-color: #A482AF;
     border-radius: 20px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -85,7 +96,6 @@ html * {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 0px;
-    font-family: 'IBM Plex Sans Devanagari';
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
@@ -132,9 +142,9 @@ html * {
     text-align: left;
     margin-left: 13%; 
     margin-top: 5%;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9b6;
     border-radius: 20px; 
-    min-height: 170px;  
+    min-height: 185px;  
 }
 
 .menuButton {
@@ -151,8 +161,9 @@ html * {
 }
 
 .menuButton h3 {
-    padding-top:2%;
+    padding-top:4%;
 }
+
 /* Three image containers*/
 .column {
     float: left;
@@ -194,4 +205,8 @@ html * {
     border-radius: 6px;
     width: 50px;
     font-size: 14px;
+  }
+
+  #sub {
+    margin-top: 10px;
   }
