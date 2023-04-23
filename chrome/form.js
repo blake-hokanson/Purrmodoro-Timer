@@ -1,7 +1,6 @@
 let timeData = {
     studyTime: 25,
-    breakTime: 5,
-    stray: false
+    breakTime: 5
   }
   
   document.addEventListener('DOMContentLoaded', function() {
@@ -19,3 +18,35 @@ let timeData = {
     chrome.runtime.sendMessage({ msg: "setDefault", study:timeData.studyTime, rest:timeData.breakTime });
   })
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('controlDiv');
+    link.addEventListener('click', function() {
+      location.href = "controlPage.html";
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('aboutDiv');
+    link.addEventListener('click', function() {
+      location.href = "aboutMe.html";
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('homeDiv');
+    link.addEventListener('click', function() {
+      location.href = "purrSite.html";
+    });
+  });
+
+  
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const area = document.getElementsById('text');
+    area.value = getArray;
+    const subText = document.getElementById('sub');
+    subText.addEventListener('click', function() {
+      
+    })
+  })
