@@ -1,5 +1,6 @@
 let timerVar;
 let countDownTime;
+console.log("Page.js Loaded");
 
 window.addEventListener("click", function (e) {
   //makes links open to new tab
