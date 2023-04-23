@@ -16,6 +16,10 @@
     background-color: #D9D9D9;
 }
 
+.custom-field {
+    margin-left: 15%;
+}
+
 .homePage {
     display: flex;
     justify-content: center;
@@ -34,6 +38,7 @@
     margin-right: 15%;
     text-align: center;
     align-content: center;
+    min-height: 400px;
     height: 80%;
     opacity: 0.75;
     fill: rgba(112, 78, 123, 0.52);
@@ -71,14 +76,14 @@
 .settingBox h2.settingHead {
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 0px;
     font-family: 'IBM Plex Sans Devanagari';
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
-    line-height: 84px;
+    line-height: 60px;
 
     color: #000000;
-
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -101,6 +106,18 @@
     padding-top:8%;
 }
 
+.settingBox h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 15%;
+    text-align: left;
+    
+    color: #000000;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .settingBox {
     width: 75%;
     height: 35%;
@@ -108,7 +125,8 @@
     margin-left: 13%; 
     margin-top: 5%;
     background-color: #D9D9D9;
-    border-radius: 20px;
+    border-radius: 20px; 
+    min-height: 170px;  
 }
 
 .menuButton {
@@ -127,3 +145,32 @@
 .menuButton h3 {
     padding-top:2%;
 }
+
+#studyInput {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 5px;
+    border-radius: 6px;
+    width: 50px;
+    font-size: 14spx;
+    margin-bottom: 7px;
+  }
+
+
+  #break {
+    border: none;
+    -webkit-appearance: none;
+    margin-bottom: 5%;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 5px;
+    border-radius: 6px;
+    width: 50px;
+    font-size: 14px;
+  }
