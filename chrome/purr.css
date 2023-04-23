@@ -3,9 +3,12 @@
     justify-content: center;
     overflow: hidden;
     align-items: center;
-    background-color:  rgba(217, 217, 217, 0.26);
+    background-color:  rgba(217, 217, 217);
 }
-
+html * {
+    font-family:  Helvetica, sans-serif;
+    color: rgb(27, 27, 27);
+}
 .controlMenu {
     text-align: center;
     overflow-y: auto;
@@ -13,7 +16,7 @@
     min-height: 500px;
     width: 140px;
     height: 100%;
-    fill: rgba(112, 78, 123, 0.52);
+    fill: rgba(112, 78, 123);
     background-color: #D9D9D9;
 }
 
@@ -31,10 +34,15 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    background: linear-gradient(#816a89, #d9d9d9);
+    background: linear-gradient(#C686DB, #d9d9d9);
 }
-
-
+.aboutUs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background: linear-gradient(#C686DB, #d9d9d9);
+}
 .homeBox {
     flex: 1;
     width: 50%;
@@ -46,9 +54,9 @@
     align-content: center;
     min-height: 440px;
     height: 80%;
-    opacity: 0.75;
-    fill: rgba(112, 78, 123, 0.52);
-    background-color: rgba(112, 78, 123, 0.52);
+    opacity: 0.85;
+    fill: rgb(112,78,123);
+    background-color: rgba(112, 78, 123);
     border-radius: 20px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -102,7 +110,7 @@
     margin-top: 5%;
     text-align: center;
     position: relative;
-    fill: rgba(89, 60, 99, 0.41);
+    fill: rgba(89, 60, 99);
     background-color: rgba(89, 60, 99, 0.41);
     border-radius: 15px;
     filter: drop-shadow(0px 4px 4px rgba(46, 4, 8, 0.07));
@@ -151,6 +159,19 @@
 .menuButton h3 {
     padding-top:2%;
 }
+/* Three image containers*/
+.column {
+    float: left;
+    width: 25%;
+    margin-top: 5%;
+  }
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
 
 #studyInput {
     border: none;
