@@ -43,12 +43,35 @@ let timeData = {
   
 
   document.addEventListener('DOMContentLoaded', function() {
-    const area = document.getElementsById('text');
-    
-    area.value = getArray;
+    const area = document.getElementById('text');
+    let list = '';
+    chrome.runtime.sendMessage({ msg: "getBlockedSites" }, (response) => {
+      if (response) {
+        for(let i = 0; i < response.length; i++){
+          list+="\n"+response[i];
+        }
+        area.value = list;
+        getText();
+      }
+    });  
+  })
 
+  getText = () => {
+    const subText = document.getElementById('sub');
+    const area = document.getElementById('text');
+    let blocked = area.value.split('\n');
+    subText.addEventListener('click', function() {
+      chrome.runtime.sendMessage({ msg: "setBlockedSites", blockedSites: blocked }
+    )
+  })}
+
+  document.addEventListener('DOMContentLoaded', function() {
     const subText = document.getElementById('sub');
     subText.addEventListener('click', function() {
-      
-    })
+      const area = document.getElementById('text');
+    let strung = area.value;
+    let blocked = strung.split("\n");
+      chrome.runtime.sendMessage({ msg: "setBlockedSites", blockedSites: blocked }
+    )
   })
+});

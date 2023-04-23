@@ -25,6 +25,7 @@ html * {
 
 .custom-field {
     margin-left: 15%;
+    margin-right: 5px;
 }
 
 .custom-field #text {
