@@ -1,6 +1,9 @@
+let defaultStudy = 25;
+let defaultRest = 5;
+
 let isRunning = false; //function that loops
 let countDownTime; //date and time that timer ends
-let timerMin = 15; //min when started on timer
+let timerMin = defaultStudy; //min when started on timer
 let timerSec = 0; //sec when started on timer
 let isOver = false;
 let isWork = true;
@@ -90,11 +93,11 @@ const timerOver = (msg) => {
             chrome.tabs.remove(tabs[0].id);
           }
         );
-        chrome.tabs.create({ url: "popup.html" });
-        setTimer({ msg: "set", min: 15, sec: 0 });
+        //chrome.tabs.create({ url: "popup.html" });
+        setTimer({ msg: "set", min: defaultStudy, sec: 0 });
       } else {
-        setTimer({ msg: "set", min: 5, sec: 0 });
-        chrome.tabs.create({ url: "video.html" });
+        setTimer({ msg: "set", min: defaultRest, sec: 0 });
+        chrome.tabs.create({ url: "video.html" }, () => console.log("test"));
       }
       startTimer({ msg: "start" });
     }
@@ -116,6 +119,14 @@ isRunningSend = (msg, sender, sendResponse) => {
   }
 };
 chrome.runtime.onMessage.addListener(isRunningSend);
+
+setDefault = (msg) => {
+  if (msg !== null && msg.msg === "setDefault") {
+    let defaultStudy = msg.study;
+    let defaultRest = msg.rest;
+  }
+};
+chrome.runtime.onMessage.addListener(setDefault);
 
 /* Use command to get isRunning
 chrome.runtime.sendMessage({ msg: "isRunning" }, (response) => {
